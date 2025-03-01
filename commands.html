@@ -6,6 +6,7 @@
     <title>Astra Bot Commands</title>
     <style>
         /* General Styles */
+               /* General Styles */
         body {
             background-color: #23272A;
             color: white;
@@ -50,48 +51,58 @@
             transform: translateY(0);
         }
 
-        /* Command Buttons */
+        /* Command Buttons (Improved Look) */
         .commands-container { 
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 80px auto 30px;
+            padding: 0 20px;
         }
+        
         .command-block {
             display: flex;
             flex-direction: column;
             align-items: center;
             width: 100%;
         }
+
         .command {
             background-color: #5865F2;
-            padding: 15px 20px;
-            border-radius: 8px;
+            padding: 15px 25px;
+            border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s ease-in-out;
             text-align: center;
             font-size: 18px;
             font-weight: bold;
-            width: 90%;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 280px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
         }
+
+        /* Glowing Effect on Hover */
         .command:hover {
             background-color: #4752C4;
             transform: scale(1.05);
-            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 6px 12px rgba(88, 101, 242, 0.8);
+            border-color: rgba(255, 255, 255, 0.2);
         }
         
-        /* Command Descriptions */
+        /* Command Descriptions (Better Animation) */
         .description {
             display: none;
-            padding-top: 10px;
+            padding: 12px;
             font-size: 14px;
             text-align: center;
             width: 90%;
-            background-color: rgba(88, 101, 242, 0.2);
-            padding: 10px;
-            border-radius: 6px;
+            background-color: rgba(88, 101, 242, 0.15);
+            padding: 12px;
+            border-radius: 8px;
             transition: all 0.3s ease-in-out;
         }
 
@@ -109,6 +120,21 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #4752C4;
         }
+
+        /* Mobile-Friendly Improvements */
+        @media screen and (max-width: 600px) {
+            .commands-container {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+            }
+
+            .command {
+                font-size: 16px;
+                padding: 12px 20px;
+                max-width: 250px;
+            }
+        }
+
 
     </style>
     <script>
