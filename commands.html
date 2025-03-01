@@ -1,51 +1,114 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Commands - Astra Bot</title>
+    <title>Astra Bot Commands</title>
     <style>
-        body { background-color: #23272A; color: white; text-align: center; font-family: Arial, sans-serif; }
-        .nav { background-color: #5865F2; padding: 15px; }
-        .nav a { color: white; text-decoration: none; margin: 15px; font-size: 18px; }
-        .nav a:hover { text-decoration: underline; }
-       .commands-container { 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    max-width: 900px;
-    margin: 20px auto;
-}
+        /* General Styles */
+        body {
+            background-color: #23272A;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Navbar */
+        .nav {
+            background-color: #5865F2;
+            padding: 15px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: background 0.3s;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        .nav a:hover {
+            text-decoration: underline;
+            color: #FFD700;
+        }
+        
+        /* Smooth Scroll Animation */
+        .section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-.command-block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
+        /* Command Buttons */
+        .commands-container { 
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            margin: 80px auto 30px;
+        }
+        .command-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        .command {
+            background-color: #5865F2;
+            padding: 15px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            width: 90%;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        .command:hover {
+            background-color: #4752C4;
+            transform: scale(1.05);
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Command Descriptions */
+        .description {
+            display: none;
+            padding-top: 10px;
+            font-size: 14px;
+            text-align: center;
+            width: 90%;
+            background-color: rgba(88, 101, 242, 0.2);
+            padding: 10px;
+            border-radius: 6px;
+            transition: all 0.3s ease-in-out;
+        }
 
-.command {
-    background-color: #5865F2;
-    padding: 15px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s;
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    width: 80%; /* Make buttons wider */
-}
+        /* Fancy Scrolling Effects */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #2C2F33;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #5865F2;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4752C4;
+        }
 
-.command:hover {
-    background-color: #4752C4;
-}
-
-.description {
-    display: none;
-    padding-top: 10px;
-    font-size: 14px;
-    text-align: center;
-    width: 80%;
-}
     </style>
     <script>
         function toggleDescription(id) {
@@ -56,6 +119,23 @@
                 desc.style.display = "none";
             }
         }
+
+        // Scroll Animation
+        document.addEventListener("DOMContentLoaded", function () {
+            const sections = document.querySelectorAll(".section");
+
+            function checkScroll() {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    if (sectionTop < window.innerHeight - 50) {
+                        section.classList.add("show");
+                    }
+                });
+            }
+
+            window.addEventListener("scroll", checkScroll);
+            checkScroll(); // Run on page load
+        });
     </script>
 </head>
 <body>
@@ -65,27 +145,24 @@
         <a href="tos.html">Terms of Service</a>
         <a href="privacy.html">Privacy Policy</a>
     </div>
-    <h1>Astra Bot Commands</h1>
-    <p>Click a command to see its description.</p>
-    
-    <h2>General Commands</h2>
-    <div class="commands-container">
+
+    <h1 class="section">Astra Bot Commands</h1>
+    <p class="section">Click a command to see its description.</p>
+
+    <h2 class="section">General Commands</h2>
+    <div class="commands-container section">
         <div class="command-block">
             <div class="command" onclick="toggleDescription('desc-help')">!help</div>
-            <div class="description" id="desc-help">Shows the help menu with all available commands.</div>
+            <div class="description" id="desc-help">Provides a list of available commands by category.</div>
         </div>
         <div class="command-block">
             <div class="command" onclick="toggleDescription('desc-botinfo')">!botinfo</div>
             <div class="description" id="desc-botinfo">Displays information about Astra, including version and developer.</div>
         </div>
-        <div class="command-block">
-            <div class="command" onclick="toggleDescription('desc-ping')">!ping</div>
-            <div class="description" id="desc-ping">Checks Astra’s latency.</div>
-        </div>
     </div>
-    
-    <h2>Economy Commands</h2>
-    <div class="commands-container">
+
+    <h2 class="section">Economy Commands</h2>
+    <div class="commands-container section">
         <div class="command-block">
             <div class="command" onclick="toggleDescription('desc-work')">!work</div>
             <div class="description" id="desc-work">Earn money by working in your chosen job.</div>
@@ -94,14 +171,10 @@
             <div class="command" onclick="toggleDescription('desc-daily')">!daily</div>
             <div class="description" id="desc-daily">Claim your daily reward.</div>
         </div>
-        <div class="command-block">
-            <div class="command" onclick="toggleDescription('desc-beg')">!beg</div>
-            <div class="description" id="desc-beg">Ask for spare change with a chance to earn small amounts.</div>
-        </div>
     </div>
-    
-    <h2>Moderation Commands</h2>
-    <div class="commands-container">
+
+    <h2 class="section">Moderation Commands</h2>
+    <div class="commands-container section">
         <div class="command-block">
             <div class="command" onclick="toggleDescription('desc-warn')">!warn [user] [reason]</div>
             <div class="description" id="desc-warn">Issues a warning to a user.</div>
@@ -110,14 +183,10 @@
             <div class="command" onclick="toggleDescription('desc-kick')">!kick [user]</div>
             <div class="description" id="desc-kick">Kicks a user from the server.</div>
         </div>
-        <div class="command-block">
-            <div class="command" onclick="toggleDescription('desc-ban')">!ban [user]</div>
-            <div class="description" id="desc-ban">Bans a user from the server.</div>
-        </div>
     </div>
-    
-    <h2>Fun Commands</h2>
-    <div class="commands-container">
+
+    <h2 class="section">Fun Commands</h2>
+    <div class="commands-container section">
         <div class="command-block">
             <div class="command" onclick="toggleDescription('desc-howgay')">!howgay</div>
             <div class="description" id="desc-howgay">Find out your fabulousness level.</div>
@@ -125,10 +194,6 @@
         <div class="command-block">
             <div class="command" onclick="toggleDescription('desc-8ball')">!8ball [question]</div>
             <div class="description" id="desc-8ball">Ask the magic 8ball a question.</div>
-        </div>
-        <div class="command-block">
-            <div class="command" onclick="toggleDescription('desc-diceroll')">!diceroll</div>
-            <div class="description" id="desc-diceroll">Roll a dice with a specified number of sides.</div>
         </div>
     </div>
 </body>
