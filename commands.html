@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,11 +8,16 @@
         .nav { background-color: #5865F2; padding: 15px; }
         .nav a { color: white; text-decoration: none; margin: 15px; font-size: 18px; }
         .nav a:hover { text-decoration: underline; }
-        .commands-container { max-width: 600px; margin: 20px auto; }
+        .commands-container { 
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            max-width: 900px;
+            margin: 20px auto;
+        }
         .command {
             background-color: #5865F2;
             padding: 15px;
-            margin: 10px 0;
             border-radius: 8px;
             cursor: pointer;
             transition: background 0.3s;
@@ -25,6 +29,7 @@
             display: none;
             padding-top: 10px;
             font-size: 14px;
+            text-align: center;
         }
     </style>
     <script>
@@ -48,18 +53,56 @@
     <h1>Astra Bot Commands</h1>
     <p>Click a command to see its description.</p>
     
+    <h2>General Commands</h2>
     <div class="commands-container">
         <div class="command" onclick="toggleDescription('desc-help')">!help</div>
         <div class="description" id="desc-help">Shows the help menu with all available commands.</div>
-
+        <div class="command" onclick="toggleDescription('desc-botinfo')">!botinfo</div>
+        <div class="description" id="desc-botinfo">Displays information about Astra, including version and developer.</div>
+        <div class="command" onclick="toggleDescription('desc-ping')">!ping</div>
+        <div class="description" id="desc-ping">Checks Astra’s latency.</div>
+    </div>
+    
+    <h2>Economy Commands</h2>
+    <div class="commands-container">
+        <div class="command" onclick="toggleDescription('desc-work')">!work</div>
+        <div class="description" id="desc-work">Earn money by working in your chosen job.</div>
+        <div class="command" onclick="toggleDescription('desc-daily')">!daily</div>
+        <div class="description" id="desc-daily">Claim your daily reward.</div>
+        <div class="command" onclick="toggleDescription('desc-beg')">!beg</div>
+        <div class="description" id="desc-beg">Ask for spare change with a chance to earn small amounts.</div>
+        <div class="command" onclick="toggleDescription('desc-shop')">!shop</div>
+        <div class="description" id="desc-shop">View available items for purchase.</div>
+        <div class="command" onclick="toggleDescription('desc-gamble')">!gamble</div>
+        <div class="description" id="desc-gamble">Risk your money for a chance to win big.</div>
+        <div class="command" onclick="toggleDescription('desc-bankrob')">!bankrob</div>
+        <div class="description" id="desc-bankrob">Attempt a bank heist with another user.</div>
+    </div>
+    
+    <h2>Moderation Commands</h2>
+    <div class="commands-container">
+        <div class="command" onclick="toggleDescription('desc-warn')">!warn [user] [reason]</div>
+        <div class="description" id="desc-warn">Issues a warning to a user.</div>
         <div class="command" onclick="toggleDescription('desc-kick')">!kick [user]</div>
-        <div class="description" id="desc-kick">Kicks a user from the server. Requires Kick permissions.</div>
-
+        <div class="description" id="desc-kick">Kicks a user from the server.</div>
         <div class="command" onclick="toggleDescription('desc-ban')">!ban [user]</div>
-        <div class="description" id="desc-ban">Bans a user from the server. Requires Ban permissions.</div>
-
-        <div class="command" onclick="toggleDescription('desc-stats')">!stats</div>
-        <div class="description" id="desc-stats">Displays bot statistics and uptime.</div>
+        <div class="description" id="desc-ban">Bans a user from the server.</div>
+        <div class="command" onclick="toggleDescription('desc-purge')">!purge [number]</div>
+        <div class="description" id="desc-purge">Deletes the specified number of recent messages.</div>
+    </div>
+    
+    <h2>Fun Commands</h2>
+    <div class="commands-container">
+        <div class="command" onclick="toggleDescription('desc-howgay')">!howgay</div>
+        <div class="description" id="desc-howgay">Find out your fabulousness level.</div>
+        <div class="command" onclick="toggleDescription('desc-8ball')">!8ball [question]</div>
+        <div class="description" id="desc-8ball">Ask the magic 8ball a question.</div>
+        <div class="command" onclick="toggleDescription('desc-diceroll')">!diceroll</div>
+        <div class="description" id="desc-diceroll">Roll a dice with a specified number of sides.</div>
+        <div class="command" onclick="toggleDescription('desc-fortune')">!fortune</div>
+        <div class="description" id="desc-fortune">Get your fortune told.</div>
+        <div class="command" onclick="toggleDescription('desc-ship')">!ship</div>
+        <div class="description" id="desc-ship">See how compatible two users are.</div>
     </div>
 </body>
 </html>
