@@ -9,7 +9,34 @@
         .nav { background-color: #5865F2; padding: 15px; }
         .nav a { color: white; text-decoration: none; margin: 15px; font-size: 18px; }
         .nav a:hover { text-decoration: underline; }
+        .commands-container { max-width: 600px; margin: 20px auto; }
+        .command {
+            background-color: #5865F2;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .command:hover {
+            background-color: #4752C4;
+        }
+        .description {
+            display: none;
+            padding-top: 10px;
+            font-size: 14px;
+        }
     </style>
+    <script>
+        function toggleDescription(id) {
+            var desc = document.getElementById(id);
+            if (desc.style.display === "none") {
+                desc.style.display = "block";
+            } else {
+                desc.style.display = "none";
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="nav">
@@ -19,12 +46,20 @@
         <a href="privacy.html">Privacy Policy</a>
     </div>
     <h1>Astra Bot Commands</h1>
-    <p>Here are the available commands for Astra:</p>
-    <ul>
-        <li><b>!help</b> - Shows the help menu</li>
-        <li><b>!kick [user]</b> - Kicks a user from the server</li>
-        <li><b>!ban [user]</b> - Bans a user from the server</li>
-        <li><b>!stats</b> - Displays bot statistics</li>
-    </ul>
+    <p>Click a command to see its description.</p>
+    
+    <div class="commands-container">
+        <div class="command" onclick="toggleDescription('desc-help')">!help</div>
+        <div class="description" id="desc-help">Shows the help menu with all available commands.</div>
+
+        <div class="command" onclick="toggleDescription('desc-kick')">!kick [user]</div>
+        <div class="description" id="desc-kick">Kicks a user from the server. Requires Kick permissions.</div>
+
+        <div class="command" onclick="toggleDescription('desc-ban')">!ban [user]</div>
+        <div class="description" id="desc-ban">Bans a user from the server. Requires Ban permissions.</div>
+
+        <div class="command" onclick="toggleDescription('desc-stats')">!stats</div>
+        <div class="description" id="desc-stats">Displays bot statistics and uptime.</div>
+    </div>
 </body>
 </html>
