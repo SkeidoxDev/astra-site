@@ -1,9 +1,33 @@
+<?php
+session_start();
+
+// Check if user is already logged in
+if (isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === true) {
+    header("Location: protected.php"); // Redirect to the protected page
+    exit;
+}
+
+// Check for form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $password = $_POST["password"];
+    $correct_password = "AstraIsCool"; // Change this to your actual password
+
+    if ($password === $correct_password) {
+        $_SESSION['authenticated'] = true; // Store login session
+        header("Location: protected.php"); // Redirect to the protected page
+        exit;
+    } else {
+        $error = "Incorrect password. Try again.";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Protected Page</title>
+    <title>Login - Astra Admin</title>
     <style>
         body {
             background-color: #23272A;
@@ -40,23 +64,16 @@
             background-color: #4752C4;
         }
     </style>
-    <script>
-        function checkPassword() {
-            var password = document.getElementById("password").value;
-            if (password === "AstraIsCool") { // Set your password here
-                window.location.href = "commands.html"; // Redirect to your real page
-            } else {
-                alert("Incorrect password. Try again.");
-            }
-        }
-    </script>
 </head>
 <body>
 
     <div class="container">
-        <h2>Enter Password to Access</h2>
-        <input type="password" id="password" placeholder="Enter Password">
-        <button onclick="checkPassword()">Submit</button>
+        <h2>Admin Panel Login</h2>
+        <?php if (isset($error)) { echo "<p style='color: red;'>$error</p>"; } ?>
+        <form method="post">
+            <input type="password" name="password" placeholder="Enter Password" required>
+            <button type="submit">Login</button>
+        </form>
     </div>
 
 </body>
