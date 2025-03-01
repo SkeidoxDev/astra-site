@@ -8,37 +8,44 @@
         .nav { background-color: #5865F2; padding: 15px; }
         .nav a { color: white; text-decoration: none; margin: 15px; font-size: 18px; }
         .nav a:hover { text-decoration: underline; }
-        .commands-container { 
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            max-width: 900px;
-            margin: 20px auto;
-        }
-        .command-block {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .command {
-            background-color: #5865F2;
-            padding: 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.3s;
-            width: 100px;
-            text-align: center;
-        }
-        .command:hover {
-            background-color: #4752C4;
-        }
-        .description {
-            display: none;
-            padding-top: 5px;
-            font-size: 14px;
-            text-align: center;
-            width: 100%;
-        }
+       .commands-container { 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+.command-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.command {
+    background-color: #5865F2;
+    padding: 15px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    width: 80%; /* Make buttons wider */
+}
+
+.command:hover {
+    background-color: #4752C4;
+}
+
+.description {
+    display: none;
+    padding-top: 10px;
+    font-size: 14px;
+    text-align: center;
+    width: 80%;
+}
     </style>
     <script>
         function toggleDescription(id) {
