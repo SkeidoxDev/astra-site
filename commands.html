@@ -151,58 +151,233 @@
 
     <h2 class="section">General Commands</h2>
     <div class="commands-container section">
-        <div class="command-block">
-            <div class="command" onclick="toggleDescription('desc-help')">help</div>
-            <div class="description" id="desc-help">Provides a list of available commands by category.</div>
-        </div>
-        <div class="command-block">
-            <div class="command" onclick="toggleDescription('desc-botinfo')">botinfo</div>
-            <div class="description" id="desc-botinfo">Displays information about Astra, including version and developer.</div>
-        </div>
+        <div class="commands-container">
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-botinfo')">botinfo</div>
+        <div class="description" id="desc-botinfo">Displays information about Astra, including creator, version, and features.</div>
     </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-help')">help</div>
+        <div class="description" id="desc-help">Provides a list of available commands by category.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-ping')">ping</div>
+        <div class="description" id="desc-ping">Checks Astra’s latency.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-support')">support</div>
+        <div class="description" id="desc-support">Get the link to Astra's support server.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-vote')">vote</div>
+        <div class="description" id="desc-vote">Cast your vote for Astra on Top.gg to show support!</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-reportbug')">reportbug [bug description]</div>
+        <div class="description" id="desc-reportbug">Report any issues or bugs directly to the bot team for review.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-suggest')">suggest [suggestion]</div>
+        <div class="description" id="desc-suggest">Suggest anything, nothing is too wild.</div>
+    </div>
+</div>
 
     <h2 class="section">Economy Commands</h2>
     <div class="commands-container section">
-        <div class="command-block">
-            <div class="command" onclick="toggleDescription('desc-bal')">bal</div>
-            <div class="description" id="desc-bal">View your balance in bank & wallet and work experience.</div>
-        </div>
-        <div class="command-block">
-            <div class="command" onclick="toggleDescription('desc-work')">work</div>
-            <div class="description" id="desc-work">Earn money by working in your chosen job.</div>
-        </div>
-        <div class="command-block">
-            <div class="command" onclick="toggleDescription('desc-daily')">daily</div>
-            <div class="description" id="desc-daily">Claim your daily reward.</div>
-        </div>
-         <div class="command-block">
-            <div class="command" onclick="toggleDescription('desc-withdraw')">withdraw</div>
-            <div class="description" id="desc-withdraw">Move money from bank to wallet.</div>
-        </div>
+        <div class="commands-container">
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-work')">work</div>
+        <div class="description" id="desc-work">Earn money by working in your chosen job with gradual level increases.</div>
     </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-viewjobs')">viewjobs</div>
+        <div class="description" id="desc-viewjobs">View available jobs, their pay, and requirements.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-choosejob')">choosejob [job_name]</div>
+        <div class="description" id="desc-choosejob">Select a job to start earning. Higher-tier jobs require items or levels.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-quitjob')">quitjob</div>
+        <div class="description" id="desc-quitjob">Quit your current job to choose a different career path.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-inventory')">inventory</div>
+        <div class="description" id="desc-inventory">View what you have in your inventory, slots used, and next upgrade cost.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-buyitem')">buyitem [item]</div>
+        <div class="description" id="desc-buyitem">Purchase an item from the shop using your wallet balance.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-daily')">daily</div>
+        <div class="description" id="desc-daily">Claim your daily reward of $100.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-beg')">beg</div>
+        <div class="description" id="desc-beg">Ask for spare change with a chance of earning small amounts.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-bal')">bal</div>
+        <div class="description" id="desc-bal">View your balance in bank & wallet and work experience.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-withdraw')">withdraw</div>
+        <div class="description" id="desc-withdraw">Move money from bank to wallet.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-deposit')">deposit</div>
+        <div class="description" id="desc-deposit">Move money from wallet to bank.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-give')">give [user] [amount]</div>
+        <div class="description" id="desc-give">Donate money to other users.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-shop')">shop</div>
+        <div class="description" id="desc-shop">See items available for purchase.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-upgradeinventory')">upgradeinventory</div>
+        <div class="description" id="desc-upgradeinventory">Increase inventory capacity. Cost scales with current slots.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-craft')">craft</div>
+        <div class="description" id="desc-craft">Craft special items like the golden fishing rod, requiring specific materials.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-achievements')">achievements</div>
+        <div class="description" id="desc-achievements">View your unlocked achievements and see what's left to earn.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-crime')">crime</div>
+        <div class="description" id="desc-crime">50/50 chance to lose or win money.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-search')">search</div>
+        <div class="description" id="desc-search">Find random amounts of money.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-gamble')">gamble [amount]</div>
+        <div class="description" id="desc-gamble">A high-risk way to earn or lose money.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-bj')">bj [amount]</div>
+        <div class="description" id="desc-bj">Play blackjack to win or lose money.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-rob')">rob [user]</div>
+        <div class="description" id="desc-rob">Attempt to rob other users' money.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-bankrob')">bankrob</div>
+        <div class="description" id="desc-bankrob">Team up with another user to rob a bank. Two participants required.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-viewbusiness')">viewbusiness</div>
+        <div class="description" id="desc-viewbusiness">View available businesses, costs, and income rates.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-buybusiness')">buybusiness [business_name]</div>
+        <div class="description" id="desc-buybusiness">Purchase a business to earn passive income while chatting.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-claimbusiness')">claimbusiness</div>
+        <div class="description" id="desc-claimbusiness">Claim your accumulated business income.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-sellbusiness')">sellbusiness</div>
+        <div class="description" id="desc-sellbusiness">Sell your current business.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-businessdashboard')">businessdashboard</div>
+        <div class="description" id="desc-businessdashboard">View your business details, including income and events.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-paybills')">paybills</div>
+        <div class="description" id="desc-paybills">Pay your business bills to continue generating passive income.</div>
+    </div>
+<div class="commands-container">
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-fish')">fish</div>
+        <div class="description" id="desc-fish">Go fishing to catch various types of fish (requires a fishing rod).</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-repairrod')">repairrod</div>
+        <div class="description" id="desc-repairrod">Repair your fishing rod if it breaks while fishing.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-sellitem')">sellitem [item] [amount]</div>
+        <div class="description" id="desc-sellitem">Sell a specific quantity of an item you've caught.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-profile')">profile</div>
+        <div class="description" id="desc-profile">View your profile card with achievements, items caught, and economy stats.</div>
+    </div>
+</div>
 
     <h2 class="section">Moderation Commands</h2>
     <div class="commands-container section">
-        <div class="command-block">
-            <div class="command" onclick="toggleDescription('desc-warn')">!warn [user] [reason]</div>
-            <div class="description" id="desc-warn">Issues a warning to a user.</div>
-        </div>
-        <div class="command-block">
-            <div class="command" onclick="toggleDescription('desc-kick')">!kick [user]</div>
-            <div class="description" id="desc-kick">Kicks a user from the server.</div>
-        </div>
+         <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-warn')">warn [user] [reason]</div>
+        <div class="description" id="desc-warn">Issues a warning to a user. Tracks up to 10 warnings, including the moderator, date, and reason.</div>
     </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-viewwarnings')">viewwarnings [user]</div>
+        <div class="description" id="desc-viewwarnings">Shows all warnings for the mentioned user, up to a maximum of 10 warnings.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-clearwarnings')">clearwarnings [user]</div>
+        <div class="description" id="desc-clearwarnings">Clears all warnings for the mentioned user and resets their warning count.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-kick')">kick [user]</div>
+        <div class="description" id="desc-kick">Kicks the mentioned user from the server.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-ban')">ban [user]</div>
+        <div class="description" id="desc-ban">Bans the mentioned user from the server.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-unban')">unban [user-id]</div>
+        <div class="description" id="desc-unban">Unbans the specified user from the server.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-purge')">purge [number]</div>
+        <div class="description" id="desc-purge">Deletes the specified number of recent messages (up to 100) from the channel.</div>
+    </div>
+</div>
 
     <h2 class="section">Fun Commands</h2>
     <div class="commands-container section">
-        <div class="command-block">
-            <div class="command" onclick="toggleDescription('desc-howgay')">!howgay</div>
-            <div class="description" id="desc-howgay">Find out your fabulousness level.</div>
-        </div>
-        <div class="command-block">
-            <div class="command" onclick="toggleDescription('desc-8ball')">!8ball [question]</div>
-            <div class="description" id="desc-8ball">Ask the magic 8ball a question.</div>
-        </div>
+      <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-howgay')">howgay</div>
+        <div class="description" id="desc-howgay">Find out your fabulousness level.</div>
     </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-howstraight')">howstraight</div>
+        <div class="description" id="desc-howstraight">See just how "straight" you are.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-fortune')">fortune</div>
+        <div class="description" id="desc-fortune">Get your fortune told.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-ship')">ship</div>
+        <div class="description" id="desc-ship">Ship yourself with others for ultimate romance.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-8ball')">8ball [question]</div>
+        <div class="description" id="desc-8ball">Ask the magic 8ball a question.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-truth')">truth</div>
+        <div class="description" id="desc-truth">Gives you a truth to answer.</div>
+    </div>
+    <div class="command-block">
+        <div class="command" onclick="toggleDescription('desc-diceroll')">diceroll</div>
+        <div class="description" id="desc-diceroll">Roll a dice with a specified number of sides.</div>
+    </div>
+</div>
 </body>
 </html>
