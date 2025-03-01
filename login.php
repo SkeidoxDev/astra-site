@@ -1,16 +1,16 @@
 <?php
 session_start();
 
-// Check if user is already logged in
+// Check if the user is already logged in
 if (isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === true) {
     header("Location: protected.php"); // Redirect to the protected page
     exit;
 }
 
-// Check for form submission
+// Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
-    $correct_password = "AstraIsCool"; // Change this to your actual password
+    $correct_password = "AstraIsCool"; // Change this to your real password
 
     if ($password === $correct_password) {
         $_SESSION['authenticated'] = true; // Store login session
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Astra Admin</title>
+    <title>Admin Login - Astra Bot</title>
     <style>
         body {
             background-color: #23272A;
@@ -59,6 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border: none;
             cursor: pointer;
             border-radius: 5px;
+            margin-top: 10px;
         }
         button:hover {
             background-color: #4752C4;
