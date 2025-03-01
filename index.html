@@ -68,25 +68,6 @@
             transition: 0.3s;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
         }
-        .admin-button:hover {
-            background-color: #CC3C3C;
-            transform: scale(1.05);
-        }
-
-        /* Ensure Footer is Visible */
-        body {
-            padding-bottom: 80px; /* Adds space so the button doesn't overlap */
-        }
-
-        /* Adjust Admin Button on Small Screens */
-        @media screen and (max-width: 600px) {
-            .admin-button {
-                bottom: 60px; /* Move it higher to avoid overlapping footer */
-                left: 10px;
-                padding: 10px 18px;
-                font-size: 14px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -95,7 +76,6 @@
         <a href="commands.html">Commands</a>
         <a href="tos.html">Terms of Service</a>
         <a href="privacy.html">Privacy Policy</a>
-        <a href="astraadmin.html">Astra Staff Login</a>
     </div>
     
     <div class="container">
@@ -115,9 +95,5 @@
     <div class="footer">
         <p>&copy; 2024 Astra Bot. Not affiliated with Discord.</p>
     </div>
-
-    <!-- Floating Admin Panel Button -->
-    <a href="astraadmin.html" class="admin-button">Admin Panel</a>
-
 </body>
 </html>
