@@ -72,21 +72,15 @@
                 return;
             }
 
-            // Load existing commands or create an empty array
-            let commands = JSON.parse(localStorage.getItem("commands")) || [];
+            let commands = JSON.parse(localStorage.getItem("commands")) || {};
+            if (typeof commands !== "object") commands = {};
 
-            // Ensure the stored data is always an array
-            if (!Array.isArray(commands)) {
-                commands = [];
+            if (!commands[category]) {
+                commands[category] = [];
             }
 
-            // Create new command object
-            const newCommand = { name, description, category };
+            commands[category].push({ name, description });
 
-            // Add the command to the list
-            commands.push(newCommand);
-
-            // Save the updated command list back to localStorage
             localStorage.setItem("commands", JSON.stringify(commands));
 
             alert("Command added successfully!");
