@@ -64,31 +64,21 @@
     </style>
     <script>
         function loadCommands() {
-            let commands = JSON.parse(localStorage.getItem("commands")) || [];
+            let commands = JSON.parse(localStorage.getItem("commands")) || {};
 
-            if (!Array.isArray(commands)) {
-                commands = []; // Reset if data is corrupted
-            }
+            const categories = ["Utility", "Moderation", "Fun", "Economy"];
 
-            let categories = {
-                Utility: "",
-                Moderation: "",
-                Fun: "",
-                Economy: ""
-            };
+            categories.forEach(category => {
+                let categoryDiv = document.getElementById(category.toLowerCase() + "Commands");
 
-            // Categorize commands
-            commands.forEach(cmd => {
-                if (categories[cmd.category]) {
-                    categories[cmd.category] += `<div class="command"><strong>${cmd.name}</strong>: ${cmd.description}</div>`;
+                if (commands[category] && commands[category].length > 0) {
+                    categoryDiv.innerHTML = commands[category].map(cmd =>
+                        `<div class="command"><strong>${cmd.name}</strong>: ${cmd.description}</div>`
+                    ).join("");
+                } else {
+                    categoryDiv.innerHTML = "<p>No commands added.</p>";
                 }
             });
-
-            // Update HTML with commands or show "No commands added"
-            document.getElementById("utilityCommands").innerHTML = categories.Utility || "<p>No Utility commands added.</p>";
-            document.getElementById("moderationCommands").innerHTML = categories.Moderation || "<p>No Moderation commands added.</p>";
-            document.getElementById("funCommands").innerHTML = categories.Fun || "<p>No Fun commands added.</p>";
-            document.getElementById("economyCommands").innerHTML = categories.Economy || "<p>No Economy commands added.</p>";
         }
 
         function checkAdmin() {
