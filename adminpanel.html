@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astra Admin Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #23272A;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            padding: 50px;
+            max-width: 500px;
+            margin: auto;
+            background-color: #2C2F33;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #5865F2;
+        }
+
+        input, textarea {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: none;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            font-size: 18px;
+            color: white;
+            background-color: #5865F2;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #4752C4;
+            transform: scale(1.05);
+        }
+    </style>
+    <script>
+        function checkAdmin() {
+            if (localStorage.getItem("isAdmin") !== "true") {
+                alert("Access Denied! You must log in.");
+                window.location.href = "astraadmin.html";
+            }
+        }
+
+        function addCommand() {
+            const name = document.getElementById("commandName").value;
+            const description = document.getElementById("commandDesc").value;
+            if (name === "" || description === "") {
+                alert("Please fill out both fields.");
+                return;
+            }
+
+            const newCommand = { name, description };
+            let commands = JSON.parse(localStorage.getItem("commands")) || [];
+            commands.push(newCommand);
+            localStorage.setItem("commands", JSON.stringify(commands));
+
+            alert("Command added successfully!");
+            document.getElementById("commandName").value = "";
+            document.getElementById("commandDesc").value = "";
+        }
+
+        window.onload = checkAdmin;
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🛠 Astra Admin Panel</h1>
+        <p>Add new commands to the bot command page.</p>
+
+        <input type="text" id="commandName" placeholder="Command Name (e.g., !work)">
+        <textarea id="commandDesc" placeholder="Command Description"></textarea>
+        <br>
+        <button class="button" onclick="addCommand()">Add Command</button>
+    </div>
+
+</body>
+</html>
