@@ -28,7 +28,7 @@
             color: #5865F2;
         }
 
-        input, textarea {
+        input, textarea, select {
             width: 90%;
             padding: 10px;
             margin: 10px 0;
@@ -65,12 +65,14 @@
         function addCommand() {
             const name = document.getElementById("commandName").value;
             const description = document.getElementById("commandDesc").value;
+            const category = document.getElementById("commandCategory").value;
+
             if (name === "" || description === "") {
-                alert("Please fill out both fields.");
+                alert("Please fill out all fields.");
                 return;
             }
 
-            const newCommand = { name, description };
+            const newCommand = { name, description, category };
             let commands = JSON.parse(localStorage.getItem("commands")) || [];
             commands.push(newCommand);
             localStorage.setItem("commands", JSON.stringify(commands));
@@ -87,10 +89,16 @@
 
     <div class="container">
         <h1>🛠 Astra Admin Panel</h1>
-        <p>Add new commands to the bot command page.</p>
+        <p>Add new commands under a specific category.</p>
 
         <input type="text" id="commandName" placeholder="Command Name (e.g., !work)">
         <textarea id="commandDesc" placeholder="Command Description"></textarea>
+        <select id="commandCategory">
+            <option value="Utility">Utility</option>
+            <option value="Moderation">Moderation</option>
+            <option value="Fun">Fun</option>
+            <option value="Economy">Economy</option>
+        </select>
         <br>
         <button class="button" onclick="addCommand()">Add Command</button>
     </div>
