@@ -63,18 +63,30 @@
         }
 
         function addCommand() {
-            const name = document.getElementById("commandName").value;
-            const description = document.getElementById("commandDesc").value;
+            const name = document.getElementById("commandName").value.trim();
+            const description = document.getElementById("commandDesc").value.trim();
             const category = document.getElementById("commandCategory").value;
 
-            if (name === "" || description === "") {
+            if (!name || !description) {
                 alert("Please fill out all fields.");
                 return;
             }
 
-            const newCommand = { name, description, category };
+            // Load existing commands or create an empty array
             let commands = JSON.parse(localStorage.getItem("commands")) || [];
+
+            // Ensure the stored data is always an array
+            if (!Array.isArray(commands)) {
+                commands = [];
+            }
+
+            // Create new command object
+            const newCommand = { name, description, category };
+
+            // Add the command to the list
             commands.push(newCommand);
+
+            // Save the updated command list back to localStorage
             localStorage.setItem("commands", JSON.stringify(commands));
 
             alert("Command added successfully!");
