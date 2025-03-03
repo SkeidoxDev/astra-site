@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astra Admin Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #23272A;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            padding: 50px;
+            max-width: 400px;
+            margin: auto;
+            background-color: #2C2F33;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            margin-top: 100px;
+        }
+
+        h1 {
+            color: #5865F2;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: none;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            font-size: 18px;
+            color: white;
+            background-color: #5865F2;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #4752C4;
+            transform: scale(1.05);
+        }
+    </style>
+    <script>
+        function checkLogin() {
+            const password = document.getElementById("password").value;
+            const correctPassword = "AstraIsSoCoolLikeCaidenKenzieAndLogan"; // Change this to a real password later
+
+            if (password === correctPassword) {
+                localStorage.setItem("isAdmin", "true");
+                window.location.href = "adminpanel.html"; // Redirect to admin panel
+            } else {
+                alert("Incorrect password!");
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🔒 Astra Staff Login</h1>
+        <p>Enter the password to access the admin panel.</p>
+        <input type="password" id="password" placeholder="Enter Password">
+        <br>
+        <button class="button" onclick="checkLogin()">Login</button>
+    </div>
+
+</body>
+</html>
