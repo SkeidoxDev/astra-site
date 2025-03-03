@@ -16,7 +16,7 @@
 
         .container {
             padding: 50px;
-            max-width: 600px;
+            max-width: 700px;
             margin: auto;
             background-color: #2C2F33;
             border-radius: 8px;
@@ -28,18 +28,23 @@
             color: #5865F2;
         }
 
-        .command {
-            background-color: #5865F2;
+        .command-category {
+            margin-top: 20px;
             padding: 15px;
-            border-radius: 8px;
-            margin: 10px 0;
-            font-size: 18px;
-            cursor: pointer;
+            border-radius: 6px;
+            background-color: #3B3F45;
         }
 
-        /* Admin Panel Button */
+        .command {
+            background-color: #5865F2;
+            padding: 10px;
+            border-radius: 6px;
+            margin: 5px 0;
+            font-size: 16px;
+        }
+
         .admin-button {
-            display: none; /* Hidden by default */
+            display: none;
             background-color: #FF4747;
             color: white;
             padding: 12px 20px;
@@ -60,15 +65,16 @@
     <script>
         function loadCommands() {
             let commands = JSON.parse(localStorage.getItem("commands")) || [];
-            const commandList = document.getElementById("commandList");
-            commandList.innerHTML = "";
+            let categories = { Utility: [], Moderation: [], Fun: [], Economy: [] };
 
             commands.forEach(cmd => {
-                let div = document.createElement("div");
-                div.classList.add("command");
-                div.innerHTML = `<strong>${cmd.name}</strong>: ${cmd.description}`;
-                commandList.appendChild(div);
+                categories[cmd.category].push(`<div class="command"><strong>${cmd.name}</strong>: ${cmd.description}</div>`);
             });
+
+            document.getElementById("utilityCommands").innerHTML = categories.Utility.join("") || "No Utility commands added.";
+            document.getElementById("moderationCommands").innerHTML = categories.Moderation.join("") || "No Moderation commands added.";
+            document.getElementById("funCommands").innerHTML = categories.Fun.join("") || "No Fun commands added.";
+            document.getElementById("economyCommands").innerHTML = categories.Economy.join("") || "No Economy commands added.";
         }
 
         function checkAdmin() {
@@ -87,9 +93,29 @@
 
     <div class="container">
         <h1>📜 Astra Commands</h1>
-        <div id="commandList"></div>
+        <p>Default Prefix: <strong>-</strong></p>
+        <p>Need help? Join the <a href="https://discord.gg/t3gUJfpuS2" target="_blank">Astra Support Server</a>.</p>
 
-        <!-- Admin Panel Button (Only visible to admins) -->
+        <div class="command-category">
+            <h2>⚙️ Utility Commands</h2>
+            <div id="utilityCommands"></div>
+        </div>
+
+        <div class="command-category">
+            <h2>🛠 Moderation Commands</h2>
+            <div id="moderationCommands"></div>
+        </div>
+
+        <div class="command-category">
+            <h2>🎉 Fun Commands</h2>
+            <div id="funCommands"></div>
+        </div>
+
+        <div class="command-category">
+            <h2>💰 Economy Commands</h2>
+            <div id="economyCommands"></div>
+        </div>
+
         <a href="adminpanel.html" class="admin-button" id="adminButton">🔧 Astra Staff Admin Panel</a>
     </div>
 
