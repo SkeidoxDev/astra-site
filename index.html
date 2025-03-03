@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astra Bot</title>
+    <title>Astra Bot - The Ultimate Economy Game</title>
     <style>
+        /* General Styles */
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -12,65 +13,134 @@
             color: white;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
+
         .container {
-            padding: 50px;
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: auto;
         }
+
         h1 {
             color: #5865F2;
+            font-size: 2.5em;
+            animation: fadeIn 1s ease-in-out;
         }
+
+        p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 10px auto;
+            opacity: 0.9;
+        }
+
+        /* Buttons */
         .button {
             display: inline-block;
-            margin: 10px;
-            padding: 15px 25px;
+            margin: 15px;
+            padding: 15px 30px;
             font-size: 18px;
             color: white;
             background-color: #5865F2;
             border: none;
             border-radius: 8px;
             text-decoration: none;
-            transition: 0.3s;
+            transition: 0.3s ease-in-out;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
         }
+
         .button:hover {
             background-color: #4752C4;
-            transform: scale(1.05);
+            transform: scale(1.1);
+            box-shadow: 0px 6px 12px rgba(88, 101, 242, 0.7);
         }
+
+        /* Navbar */
         .nav {
             background-color: #5865F2;
             padding: 15px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: background 0.3s ease-in-out;
         }
+
         .nav a {
             color: white;
             text-decoration: none;
             margin: 15px;
             font-size: 18px;
+            transition: color 0.3s;
         }
+
         .nav a:hover {
             text-decoration: underline;
+            color: #FFD700;
         }
-        .footer {
-            margin-top: 50px;
-            font-size: 14px;
+
+        /* Astra Description Section */
+        .about-section {
+            background-color: #2C2F33;
+            padding: 50px 20px;
+            margin: 40px 0;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-in-out;
         }
-        
+
+        .about-section h2 {
+            color: #5865F2;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
         /* Floating Admin Panel Button */
         .admin-button {
             position: fixed;
             bottom: 15px;
             left: 15px;
-            background-color: #FF4747; /* Red for admin visibility */
+            background-color: #FF4747;
             color: white;
             padding: 12px 20px;
             font-size: 16px;
             border-radius: 8px;
             text-decoration: none;
-            transition: 0.3s;
+            transition: 0.3s ease-in-out;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
         }
+
+        .admin-button:hover {
+            background-color: #CC3C3C;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 50px;
+            font-size: 14px;
+            padding: 20px;
+            background-color: #2C2F33;
+            box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
     </style>
 </head>
 <body>
+
+    <!-- Navigation Bar -->
     <div class="nav">
         <a href="index.html">Home</a>
         <a href="commands.html">Commands</a>
@@ -78,22 +148,33 @@
         <a href="privacy.html">Privacy Policy</a>
     </div>
     
+    <!-- Welcome Section -->
     <div class="container">
         <h1>Welcome to Astra Bot</h1>
-        <p>Your ultimate Discord assistant. Smart, Fast, and Reliable!</p>
+        <p>The ultimate economy game on Discord. Earn money, fish, craft, buy & sell items, and so much more!</p>
         
         <a href="https://discord.com/oauth2/authorize?client_id=1282855274637693039&permissions=8&integration_type=0&scope=bot" 
         class="button" 
         target="_blank">
-        Invite Astra
+        🚀 Invite Astra
         </a>
-        <a href="commands.html" class="button">View Commands</a>
-        <a href="tos.html" class="button">Terms of Service</a>
-        <a href="privacy.html" class="button">Privacy Policy</a>
+
+        <a href="commands.html" class="button">📜 View Commands</a>
+        <a href="tos.html" class="button">📜 Terms of Service</a>
+        <a href="privacy.html" class="button">🔒 Privacy Policy</a>
+    </div>
+
+    <!-- About Astra Section -->
+    <div class="about-section">
+        <h2>What is Astra?</h2>
+        <p>Astra is a fun, interactive **economy game** where you can **earn money, go fishing, craft items, trade, and more!**</p>
+        <p>From **building your fortune** to **running a business**, Astra is the perfect bot to bring **adventure & strategy** to your Discord server.</p>
     </div>
     
+    <!-- Footer -->
     <div class="footer">
         <p>&copy; 2024 Astra Bot. Not affiliated with Discord.</p>
     </div>
+
 </body>
 </html>
